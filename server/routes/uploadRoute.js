@@ -12,5 +12,5 @@ router.post("/uploadLogo", authAdmin, uploadsLogo);
 router.post("/uploadPoster", authAdmin, uploadsPoster);
 router.post("/uploadFestival", authAdmin, uploadsFestival);
 router.post("/uploadBrocher", authAdmin, uploadsBrocher);
-router.post("/uploadVisitingCards", authAdmin, uploadsVisitingCards);
+router.post("/uploadVisitingCard", authAdmin, uploadsVisitingCards);
 module.exports = router;

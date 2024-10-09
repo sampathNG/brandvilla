@@ -12,6 +12,7 @@ import Logos from "./components/Logos.jsx";
 import Posters from "./components/Posters.jsx";
 import Festival from "./components/Festival.jsx";
 import Brochure from "./components/Brochure.jsx";
+import VisitingCard from "./components/VisitingCard.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -37,6 +38,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="posters" element={<Posters />} />
                 <Route path="festival" element={<Festival />} />
                 <Route path="brochure" element={<Brochure />} />
+                <Route path="visitingcard" element={<VisitingCard />} />
               </Routes>
             </>
           }

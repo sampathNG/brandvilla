@@ -4,6 +4,7 @@ import Logos from "./components/Logos";
 import Posters from "./components/Posters";
 import Festival from "./components/Festival";
 import Brochure from "./components/Brochure";
+import VisitingCard from "./components/VisitingCard";
 function App() {
   // const [count, setCount] = useState(0);
 
@@ -14,6 +15,7 @@ function App() {
       <Posters />
       <Festival />
       <Brochure />
+      <VisitingCard />
     </>
   );
 }

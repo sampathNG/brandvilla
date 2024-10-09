@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Brochure = () => {
+const VisitingCard = () => {
   const [logos, setLogos] = useState([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -10,7 +10,9 @@ const Brochure = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/brochures");
+        const response = await axios.get(
+          "http://localhost:5000/api/visitingCard"
+        );
         setLogos(response.data.files);
         setCount(response.data.count);
         console.log(logos);
@@ -35,7 +37,7 @@ const Brochure = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center">Brochures</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Visiting Cards</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
         {logos.map((logo, index) => (
           <div key={index} className="flex justify-center items-center">
@@ -51,4 +53,4 @@ const Brochure = () => {
   );
 };
 
-export default Brochure;
+export default VisitingCard;
