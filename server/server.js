@@ -31,6 +31,66 @@ app.get("/api/logos", (req, res) => {
     });
   });
 });
+app.get("/api/posters", (req, res) => {
+  const postersDir = path.join(__dirname, "images", "posters"); // Path to the logos folder
+
+  fs.readdir(postersDir, (err, files) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: "Unable to scan directory: " + err });
+    }
+
+    // Filter for image files
+    const images = files.filter((file) => /\.(jpg|jpeg|png|gif)$/.test(file));
+
+    // Send the list of images and their count
+    res.json({
+      count: images.length,
+      files: images.map((file) => `/images/posters/${file}`), // Send full paths
+    });
+  });
+});
+app.get("/api/brochures", (req, res) => {
+  const brochuresDir = path.join(__dirname, "images", "brochures"); // Path to the logos folder
+
+  fs.readdir(brochuresDir, (err, files) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: "Unable to scan directory: " + err });
+    }
+
+    // Filter for image files
+    const images = files.filter((file) => /\.(jpg|jpeg|png|gif)$/.test(file));
+
+    // Send the list of images and their count
+    res.json({
+      count: images.length,
+      files: images.map((file) => `/images/brochures/${file}`), // Send full paths
+    });
+  });
+});
+app.get("/api/festival", (req, res) => {
+  const festivalDir = path.join(__dirname, "images", "festival"); // Path to the logos folder
+
+  fs.readdir(festivalDir, (err, files) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: "Unable to scan directory: " + err });
+    }
+
+    // Filter for image files
+    const images = files.filter((file) => /\.(jpg|jpeg|png|gif)$/.test(file));
+
+    // Send the list of images and their count
+    res.json({
+      count: images.length,
+      files: images.map((file) => `/images/festival/${file}`), // Send full paths
+    });
+  });
+});
 //
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
