@@ -32,6 +32,14 @@ exports.brocherStorage = multer.diskStorage({
     cb(null, new Date().toISOString() + "-" + file.originalname);
   },
 });
+exports.visitingCardStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images/visitingCard");
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + "-" + file.originalname);
+  },
+});
 exports.fileFilter = (req, file, cb) => {
   if (
     file.mimetype === "image/png" ||

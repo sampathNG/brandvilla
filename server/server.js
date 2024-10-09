@@ -91,6 +91,26 @@ app.get("/api/festival", (req, res) => {
     });
   });
 });
+app.get("/api/visitingCard", (req, res) => {
+  const visitingCardDir = path.join(__dirname, "images", "visitingcard"); // Path to the logos folder
+
+  fs.readdir(visitingCardDir, (err, files) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: "Unable to scan directory: " + err });
+    }
+
+    // Filter for image files
+    const images = files.filter((file) => /\.(jpg|jpeg|png|gif)$/.test(file));
+
+    // Send the list of images and their count
+    res.json({
+      count: images.length,
+      files: images.map((file) => `/images/visitingCard/${file}`), // Send full paths
+    });
+  });
+});
 //
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

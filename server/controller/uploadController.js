@@ -5,6 +5,7 @@ const {
   posterStorage,
   brocherStorage,
   fileFilter,
+  visitingCardStorage,
 } = require("../utils/storage");
 const multer = require("multer");
 // const uploadImage = multer({
@@ -22,6 +23,10 @@ const uploadPoster = multer({
 }).single("image");
 const uploadBrocher = multer({
   storage: brocherStorage,
+  fileFilter: fileFilter,
+}).single("image");
+const uploadVisistingCard = multer({
+  storage: visitingCardStorage,
   fileFilter: fileFilter,
 }).single("image");
 const uploadsLogo = (req, res, next) => {
@@ -84,9 +89,25 @@ const uploadsBrocher = (req, res, next) => {
     });
   });
 };
+const uploadsVisitingCards = (req, res, next) => {
+  // uploadImage(req, res, (err) => {
+  uploadVisistingCard(req, res, (err) => {
+    if (err) {
+      return res.status(500).send({ message: "Upload failed." });
+    }
+    if (!req.file) {
+      return res.status(400).send({ message: "No file uploaded." });
+    }
+    console.log(`File uploaded`);
+    res.send({
+      message: "File uploaded successfully!",
+    });
+  });
+};
 module.exports = {
   uploadsBrocher,
   uploadsFestival,
   uploadsPoster,
   uploadsLogo,
+  uploadsVisitingCards,
 };
