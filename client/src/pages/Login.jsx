@@ -36,10 +36,13 @@ const Login = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "https://brandvillab.leadgenadvertisements.com/login",
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
       if (response.status === 200) {
         const { token } = response.data;
         const decodedToken = JSON.parse(atob(token.split(".")[1]));

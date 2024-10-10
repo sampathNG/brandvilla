@@ -30,20 +30,24 @@ const Admin = () => {
     var uploadUrl = "";
     switch (selectedCategory) {
       case "logo":
-        uploadUrl = "http://localhost:5000/uploadLogo";
+        uploadUrl = "https://brandvillab.leadgenadvertisements.com/uploadLogo";
         break;
       case "poster":
-        uploadUrl = "http://localhost:5000/uploadPoster";
+        uploadUrl =
+          "https://brandvillab.leadgenadvertisements.com/uploadPoster";
         break;
       case "festival":
-        uploadUrl = "http://localhost:5000/uploadFestival";
+        uploadUrl =
+          "https://brandvillab.leadgenadvertisements.com/uploadFestival";
         break;
       case "brochure":
-        uploadUrl = "http://localhost:5000/uploadBrochure";
+        uploadUrl =
+          "https://brandvillab.leadgenadvertisements.com/uploadBrochure";
         break;
       // visting card
       case "visting card":
-        uploadUrl = "http://localhost:5000/uploadVisitingCard";
+        uploadUrl =
+          "https://brandvillab.leadgenadvertisements.com/uploadVisitingCard";
         break;
       default:
         setUploadStatus("Please select a valid category.");

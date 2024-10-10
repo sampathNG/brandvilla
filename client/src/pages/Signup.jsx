@@ -46,11 +46,14 @@ const SignUp = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:5000/create", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "https://brandvillab.leadgenadvertisements.com/create",
+        {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
       if (response.status === 201) {
         navigate("/login");
       }
