@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 const Brochure = () => {
   const [logos, setLogos] = useState([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchLogos = async () => {
       try {
@@ -21,18 +19,14 @@ const Brochure = () => {
         setLoading(false);
       }
     };
-
     fetchLogos();
   }, []);
-
   if (loading) {
     return <p>Loading...</p>;
   }
-
   if (error) {
     return <p>{error}</p>;
   }
-
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Brochures</h1>
@@ -50,5 +44,4 @@ const Brochure = () => {
     </div>
   );
 };
-
 export default Brochure;
