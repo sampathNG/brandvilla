@@ -91,10 +91,10 @@ app.get("/api/festival", (req, res) => {
     });
   });
 });
-app.get("/api/visitingCard", (req, res) => {
-  const visitingCardDir = path.join(__dirname, "images", "visitingcard"); // Path to the logos folder
+app.get("/api/visitingcard", (req, res) => {
+  const visitingCardsDir = path.join(__dirname, "images", "visitingcard"); // Path to the logos folder
 
-  fs.readdir(visitingCardDir, (err, files) => {
+  fs.readdir(visitingCardsDir, (err, files) => {
     if (err) {
       return res
         .status(500)
@@ -107,7 +107,7 @@ app.get("/api/visitingCard", (req, res) => {
     // Send the list of images and their count
     res.json({
       count: images.length,
-      files: images.map((file) => `/images/visitingCard/${file}`), // Send full paths
+      files: images.map((file) => `/images/visitingcard/${file}`), // Send full paths
     });
   });
 });
