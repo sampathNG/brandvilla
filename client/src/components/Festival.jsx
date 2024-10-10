@@ -10,7 +10,9 @@ const Festival = () => {
   useEffect(() => {
     const fetchLogos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/Festival");
+        const response = await axios.get(
+          "https://brandvillab.leadgenadvertisements.com/api/Festival"
+        );
         setLogos(response.data.files);
         setCount(response.data.count);
         console.log(logos);
@@ -40,7 +42,7 @@ const Festival = () => {
         {logos.map((logo, index) => (
           <div key={index} className="flex justify-center items-center">
             <img
-              src={"http://localhost:5000" + logo}
+              src={"https://brandvillab.leadgenadvertisements.com" + logo}
               alt={`Logo ${index + 1}`}
               className="rounded shadow hover:shadow-lg transition-shadow duration-300"
             />

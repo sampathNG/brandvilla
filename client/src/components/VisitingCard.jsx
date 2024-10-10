@@ -9,7 +9,7 @@ const VisitingCard = () => {
     const fetchLogos = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/visitingcard"
+          "https://brandvillab.leadgenadvertisements.com/api/visitingcard"
         );
         setLogos(response.data.files);
         setCount(response.data.count);
@@ -36,7 +36,7 @@ const VisitingCard = () => {
         {logos.map((logo, index) => (
           <div key={index} className="flex justify-center items-center">
             <img
-              src={"http://localhost:5000" + logo}
+              src={"https://brandvillab.leadgenadvertisements.com" + logo}
               alt={`Logo ${index + 1}`}
               className="rounded shadow hover:shadow-lg transition-shadow duration-300"
             />
